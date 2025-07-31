@@ -4,8 +4,7 @@ Gimbal myGimbal;
 
 void setup() {
 
-  // only run once Serial port has started for debugging purposes
-  while (!Serial) ;
+  // delay(5000);
 
   pinMode(D3, OUTPUT);
   digitalWrite(D3, HIGH);
@@ -14,40 +13,24 @@ void setup() {
   myGimbal.attach();
 
 
-  Serial.println("Started");
-
 }
 
-float inc = PI/2.0;
-float radius = 0.02;
-float step = 0.001;
-bool up = true;
+float count = 0.0;
+
 
 void loop() {
-  
-  myGimbal.write(PI/2, 91*(PI/180));
 
+  double bruh = sin(count)*5;
 
-  // if ( up ) {
-  //   inc = inc + step;
-  //   if (inc >= PI/2.0 + radius) {
-  //     up = false;
-  //     inc = PI/2.0 + radius;
-  //   }
-  // } else {
-  //   inc = inc - step;
-  //   if (inc <= PI/2.0 - radius) {
-  //     up = true;
-  //     inc = PI/2.0 - radius;
-  //   }
-  // }
+  myGimbal.write(bruh,-bruh);
 
-  // Serial.print("(");
-  // Serial.print(inc);
-  // Serial.print("\t");
-  // Serial.print(inc);
-  // Serial.println(")");
+  count = count + 0.1;
+
+  if (count >= 2*PI) {
+    count = 0.0;
+  }
 
   delay(20);
+  
 
 }

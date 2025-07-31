@@ -20,7 +20,7 @@ class KDTree {
     KDTreeNode *global_root;
     struct KDTreeNode* newKDTreeNode(float point[], int value[]);
     KDTreeNode *insertRec(KDTreeNode *root, float point[], int value[], unsigned depth);
-    KDTreeNode* insert(float point[], int value[]);
+    KDTreeNode* insert( float point[], int value[]);
     bool areEqual(float point1[], float point2[]);
     KDTreeNode* closest(KDTreeNode *n0, KDTreeNode *n1, float target[]);
     KDTreeNode* nearestNeighborRec(KDTreeNode *root, float target[], unsigned depth);
